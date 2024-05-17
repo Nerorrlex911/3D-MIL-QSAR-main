@@ -311,8 +311,7 @@ def main(inp_fname=None, out_fname=None, atom_exclusion=False, smarts_features=N
         print(threshold)
 
         desc_ids = {k for k, v in c.items() if v >= threshold}
-        print('desc_ids:\n')
-        print(str(desc_ids))
+        
         # create output files with removed descriptors
 
         replace_dict = dict()  # old_id, new_id
@@ -338,7 +337,7 @@ def main(inp_fname=None, out_fname=None, atom_exclusion=False, smarts_features=N
                             desc_str.append(f'{replace_dict[i]}:{v}')
                     if desc_str:
                     	fmol.write(line1)
-                    	ftxt.write(' '.join(desc_str) + '\n')
+                        ftxt.write(' '.join(desc_str) + '\n')
 
         if not keep_temp:
             os.remove(tmp_fname)
