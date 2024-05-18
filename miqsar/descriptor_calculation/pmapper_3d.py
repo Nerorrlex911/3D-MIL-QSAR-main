@@ -258,7 +258,7 @@ def main(inp_fname=None, out_fname=None, atom_exclusion=False, smarts_features=N
                           read_input(inp_fname), chunksize=chunksize), 1):
             if desc:
                 tmp_titles.update(mol_title)
-                print(f'for {str(i)}',f'mol_title: {mol_title}',f'len_tmp_titles: {len(tmp_titles)}')
+                print(f'for {str(i)}',f'mol_title: {mol_title}',f'len_tmp_titles: {len(tmp_titles)}',f'c: {str(sys.getsizeof(c))}',f'ids_per_mol_ttl: {str(sys.getsizeof(ids_per_mol_ttl))}')
                 ids = svm.save_mol_descriptors(mol_title, desc, cols)  # ids= signatures
                 if len(tmp_titles) > length:  # new mol_title appeared
                     c.update(ids_per_mol_ttl)  # update counter with set for previous mol, as new one appeared
